@@ -1,0 +1,14 @@
+<script>
+    var r = "{:session('?success')}";
+    if (r){
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            var rs = "{:session('success')}";
+            if(rs){
+                layer.msg("{:session('msg')}", {icon: 1});
+            }else{
+                layer.msg("{:session('msg')}", {icon: 2});
+            }
+        });
+    }
+</script>

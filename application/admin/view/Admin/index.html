@@ -1,0 +1,179 @@
+{extend name="Layout/index" /}
+
+{block name="main"}
+<div class="admin-main">
+    <blockquote class="layui-elem-quote">
+        <a href="{:url('admin/add')}" class="layui-btn layui-btn-small">
+            <i class="layui-icon">&#xe608;</i> 添加用户
+        </a>
+        <a href="#" class="layui-btn layui-btn-small layui-btn-danger" id="deleteAll">
+            <i class="layui-icon">&#xe640;</i> 全部删除
+        </a>
+    </blockquote>
+    <fieldset class="layui-elem-field">
+        <legend>用户列表</legend>
+        <div class="layui-field-box layui-form">
+            <table class="layui-table admin-table">
+                <thead>
+                <tr>
+                    <th style="width: 30px;"><input type="checkbox"  lay-filter="allselector" lay-skin="primary"></th>
+                    <th>名称</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="content">
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+    <div class="admin-table-page">
+        <div id="paged" class="page">
+        </div>
+    </div>
+</div>
+<!--模板-->
+<script type="text/html" id="tpl">
+    {{# layui.each(d.data, function(index, item){ }}
+    <tr>
+        <td><input type="checkbox" lay-skin="primary" data-id="{{ item.id }}"></td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.created_at }}</td>
+        <td>
+            <a href="role/id/{{ item.id }}" class="layui-btn layui-btn-normal layui-btn-mini">角色</a>
+            <a href="edit/id/{{ item.id }}" class="layui-btn layui-btn-mini">编辑</a>
+            <a href="javascript:;" data-id="{{ item.id }}" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+        </td>
+    </tr>
+    {{# }); }}
+</script>
+{/block}
+
+{block name="footer"}
+<script>
+    layui.config({
+        base: '/static/js/'
+    });
+
+    layui.use(['paging', 'form'], function() {
+        var $ = layui.jquery,
+            paging = layui.paging(),
+            layer = layui.layer, //获取当前窗口的layer对象
+            form = layui.form;
+
+        paging.init({
+            openWait: true,
+            url: "{:url('admin.getList')}?v=" + new Date().getTime(), //地址
+            elem: '#content', //内容容器
+            params: { //发送到服务端的参数
+            },
+            type: 'GET',
+            tempElem: '#tpl', //模块容器
+            pageConfig: { //分页参数配置
+                elem: '#paged', //分页容器
+                pageSize: 15  //分页大小
+            },
+            success: function() { //渲染成功的回调
+                //alert('渲染成功');
+            },
+            fail: function(msg) { //获取数据失败的回调
+                //alert('获取数据失败')
+            },
+            complate: function() { //完成的回调
+                //alert('处理完成');
+                //重新渲染复选框
+                form.render('checkbox');
+                form.on('checkbox(allselector)', function(data) {
+                    var elem = data.elem;
+
+                    $('#content').children('tr').each(function() {
+                        var $that = $(this);
+                        //全选或反选
+                        $that.children('td').eq(0).children('input[type=checkbox]')[0].checked = elem.checked;
+                        form.render('checkbox');
+                    });
+                });
+
+                //绑定所有编辑按钮事件
+                $('#content').children('tr').each(function() {
+                    var $that = $(this);
+                    $that.children('td:last-child').children('a[data-opt=del]').on('click', function() {
+                        var id = $(this).data('id');
+                        layer.confirm('真的确定删除这条记录吗?',{
+                            btn : ['确定','按错了'],
+                        },function (index,res) {
+                            $.ajax({
+                                url : "{:url('admin.delete')}",
+                                data : 'id='+id,
+                                type :  "delete",
+                                dataType: 'json',
+                                beforeSend : function () {
+                                    layer.load(1)
+                                },
+                                complete : function () {
+                                    layer.closeAll('loading')
+                                },
+                                success : function (res) {
+                                    if(res.success){
+                                        layer.msg("删除成功", {icon: 1,time:300},function () {
+                                            window.location.reload();
+                                        });
+                                    }else{
+                                        layer.msg("删除失败", {icon: 2});
+                                    }
+                                },
+                                error:function (xhr) {
+                                    layer.msg("请求删除失败", {icon: 2});
+                                }
+                            })
+                        });
+                    });
+
+                });
+
+            },
+        });
+
+        $("#deleteAll").click(function () {
+            var arr = [];
+            $('table input:checked').each(function (i,e) {
+                arr.push($(this).data('id'))
+            })
+            if(arr.length > 0){
+                layer.confirm('真的确定删除这些记录吗?',{
+                    btn : ['确定','按错了'],
+                },function (index,res) {
+                    $.ajax({
+                        url : "{:url('admin.deleteAll')}",
+                        data : 'ids='+arr,
+                        type :  "delete",
+                        dataType: 'json',
+                        beforeSend : function () {
+                            layer.load(1)
+                        },
+                        complete : function () {
+                            layer.closeAll('loading')
+                        },
+                        success : function (res) {
+                            if(res.success){
+                                layer.msg("删除成功", {icon: 1,time:300},function () {
+                                    window.location.reload();
+                                });
+                            }else{
+                                layer.msg("删除失败", {icon: 2});
+                            }
+                        },
+                        error:function (xhr) {
+                            layer.msg("请求删除失败", {icon: 2});
+                        }
+                    })
+                });
+            }
+
+
+        })
+
+    });
+</script>
+{include file="Widget/result" /}
+{/block}

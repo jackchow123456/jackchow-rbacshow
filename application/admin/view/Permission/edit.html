@@ -1,0 +1,92 @@
+{extend name="Layout/index" /}
+
+{block name="main"}
+<div style="margin: 15px;">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>权限编辑</legend>
+    </fieldset>
+
+    <form class="layui-form" action="{:url('permission/update')}" method="POST">
+        <input type="hidden" name="id" value="{$data.id}" readonly>
+        <div class="layui-form-item">
+            <label class="layui-form-label">名字(路由)</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" lay-verify="title" autocomplete="off" class="layui-input" value="{$data.name}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">描述</label>
+            <div class="layui-input-block">
+                <input type="text" name="description" lay-verify="required"   autocomplete="off" class="layui-input" value="{$data.description}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择权限组</label>
+            <div class="layui-input-block">
+                <select name="parent_id" lay-verify="parent_id">
+                    <option value="0">父级</option>
+                    {foreach $permissionList as $key=>$vo }
+                    <option {$vo->id == $data['parent_id'] ? 'selected' : ''} value="{$vo.id}">{$vo.description}</option>
+                    {if $vo->child}
+                    {foreach($vo['child'] as $cv)}
+                    <option {$cv->id == $data['parent_id'] ? 'selected' : ''}
+                        value="{$cv->id}">
+                        |--- {$cv->description}
+                    </option>
+                    {/foreach}
+                    {/if}
+                    {/foreach}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">图标</label>
+            <div class="layui-input-inline">
+                <input type="text" name="icon" autocomplete="off" class="layui-input" value="{$data.icon}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-inline">
+                <input type="text" name="sort_order" class="layui-input" value="{$data.sort_order}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">显示菜单</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="display_menu" lay-skin="switch" lay-text="ON|OFF"  {$data['display_menu'] ? 'checked' : ''}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="demo1">更改</button>
+                <a href="{:url('permission/index')}" class="layui-btn layui-btn-primary">返回</a>
+            </div>
+        </div>
+    </form>
+</div>
+{/block}
+
+{block name="footer"}
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function() {
+        var form = layui.form;
+
+        //自定义验证规则
+        form.verify({
+            title: function(value) {
+                if(value.length < 5) {
+                    return '标题至少得5个字符啊';
+                }
+            },
+            parent_id: function(value) {
+                if(value < 0) {
+                    return '请选择权限组';
+                }
+            }
+        });
+
+
+    });
+</script>
+{/block}
