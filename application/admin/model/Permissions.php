@@ -24,6 +24,17 @@ class Permissions extends RbacPermission
         'updated_at'  =>  'datetime',
     ];
 
+    public static function init()
+    {
+        self::event('after_insert', function ($permission) {
+            return cache('rbac_permissions_for_role_id',null);
+        });
+
+        self::event('after_delete', function ($permission) {
+            return cache('rbac_permissions_for_role_id',null);
+        });
+    }
+
     protected function setCreatedAtAttr()
     {
         return get_time();

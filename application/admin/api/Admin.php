@@ -55,7 +55,7 @@ class Admin extends Base
     {
         $ids = Request::param('ids');
 
-        $ids = explode(',',$ids);
+        $ids = array_filter(explode(',',$ids));
 
         foreach ($ids as $id){
             $this->service->destroy($id);
