@@ -6,8 +6,6 @@ Rbac 演示后台
 安装条件：
 
  + php版本 >= 5.6.0
- + open_ssl扩展
- + GD扩展
 
 
 > Git安装

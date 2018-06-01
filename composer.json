@@ -1,25 +1,25 @@
 {
-    "name": "topthink/think",
-    "description": "the new thinkphp framework",
+    "name": "Rbac Features Show",
+    "description": "the rbac features show in system base on layui2.3 and thinkphp5.1",
     "type": "project",
     "keywords": [
-        "framework",
-        "thinkphp",
-        "ORM"
+        "rbac",
+        "auth",
+        "permission",
+        "thinkphp5"
     ],
-    "homepage": "http://thinkphp.cn/",
-    "license": "Apache-2.0",
+    "homepage": "https://github.com/jackchow123456/jackchow-rbacshow",
+    "license": "MIT",
     "authors": [
         {
-            "name": "liu21st",
-            "email": "liu21st@gmail.com"
+            "name": "Jack",
+            "email": "775893055@qq.com"
         }
     ],
     "require": {
         "php": ">=5.6.0",
         "topthink/framework": "5.1.*",
         "topthink/think-migration": "^2.0",
-        "topthink/think-captcha": "^2.0",
         "league/fractal": "^0.17.0",
         "jackchow/rbac": "dev-master"
     },
