@@ -1,5 +1,5 @@
 {
-    "name": "Rbac Features Show",
+    "name": "jackchow/rbacshow",
     "description": "the rbac features show in system base on layui2.3 and thinkphp5.1",
     "type": "project",
     "keywords": [
