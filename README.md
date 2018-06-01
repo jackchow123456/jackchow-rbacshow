@@ -3,16 +3,22 @@ Rbac 演示后台
 
 基于ThinkPHP5.1， layui2.3 的Jackchow/rbac权限包的演示后台
 
-安装条件：
+###安装条件：
 
  + php版本 >= 5.6.0
 
 
-> Git安装
+###安装方法：
 
-使用命令 `git clone https://github.com/jackchow123456/jackchow-rbac-show` 直接安装
+> Git 安装
 
-然后 `composer install` 或者 `composer update` 安装对应依赖
+使用命令 `git clone https://github.com/jackchow123456/jackchow-rbac-show` 
+
+> Composer 安装
+
+使用命令 `composer create-project jackchow/rbacshow`
+
+对了，不要忘了使用 `composer install` 或者 `composer update` 安装对应依赖
 
 本项目用到`league/fractal`扩展包 用作Api接口数据输出 [了解一下](http://fractal.thephpleague.com/)。
 
