@@ -14,11 +14,12 @@ Rbac 演示后台
 
 使用命令 `git clone https://github.com/jackchow123456/jackchow-rbac-show` 
 
+对了，不要忘了使用 `composer install` 或者 `composer update` 安装对应依赖
+
 > Composer 安装
 
-使用命令 `composer create-project jackchow/rbacshow`
+使用命令 `composer create-project jackchow/rbacshow:dev-master`
 
-对了，不要忘了使用 `composer install` 或者 `composer update` 安装对应依赖
 
 本项目用到`league/fractal`扩展包 用作Api接口数据输出 [了解一下](http://fractal.thephpleague.com/)。
 
@@ -50,7 +51,7 @@ www  WEB部署目录（或者子目录）
 
 ## 运行说明
 
-接着上面的composer安装完依赖后 ,命令 `php think migrate:run` 迁移数据文件 
+接着上面安装完后 ,命令 `php think migrate:run` 迁移数据文件 
 
 然后 `php think seed:run` 填充数据
 
