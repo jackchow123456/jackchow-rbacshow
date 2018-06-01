@@ -3,12 +3,12 @@ Rbac 演示后台
 
 基于ThinkPHP5.1， layui2.3 的Jackchow/rbac权限包的演示后台
 
-###安装条件：
+### 安装条件：
 
  + php版本 >= 5.6.0
 
 
-###安装方法：
+### 安装方法：
 
 > Git 安装
 
@@ -20,8 +20,6 @@ Rbac 演示后台
 
 使用命令 `composer create-project jackchow/rbacshow:dev-master`
 
-
-本项目用到`league/fractal`扩展包 用作Api接口数据输出 [了解一下](http://fractal.thephpleague.com/)。
 
 ## 目录结构
 
@@ -64,7 +62,7 @@ www  WEB部署目录（或者子目录）
 ## 参与开发
 775893055@qq.com
 
-请参阅 [ThinkPHP5 核心框架包](https://github.com/top-think/framework)。
+本项目用到`league/fractal`扩展包 用作Api接口数据输出 [了解一下](http://fractal.thephpleague.com/)。
 
 ## 版权信息
 
