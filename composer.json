@@ -10,6 +10,7 @@
     ],
     "homepage": "https://github.com/jackchow123456/jackchow-rbacshow",
     "license": "MIT",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Jack",
