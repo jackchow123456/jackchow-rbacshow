@@ -38,7 +38,7 @@ Route::group('/admin', function () {
         Route::delete('/delete', 'Admin/delete')->name('admin.delete');
     });
 
-})->prefix('\app\admin\Api\\');
+})->prefix('\app\admin\api\\');
 
 
 

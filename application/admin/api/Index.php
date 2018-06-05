@@ -2,7 +2,7 @@
 namespace app\admin\api;
 
 use app\admin\service\PermissionService;
-use app\admin\Transformers\NavBarTransformer;
+use app\admin\transformers\NavBarTransformer;
 
 class Index extends Base
 {

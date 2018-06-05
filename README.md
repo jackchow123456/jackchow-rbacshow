@@ -12,7 +12,7 @@ Rbac 演示后台
 
 > Git 安装
 
-使用命令 `git clone https://github.com/jackchow123456/jackchow-rbac-show` 
+使用命令 `git clone https://github.com/jackchow123456/jackchow-rbacshow` 
 
 对了，不要忘了使用 `composer install` 或者 `composer update` 安装对应依赖
 
@@ -49,7 +49,7 @@ www  WEB部署目录（或者子目录）
 
 ## 运行说明
 
-接着上面安装完后 ,命令 `php think migrate:run` 迁移数据文件 
+接着上面安装完后 ,命令 `php think migrate:run` 迁移数据文件
 
 然后 `php think seed:run` 填充数据
 
