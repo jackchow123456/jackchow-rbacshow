@@ -1,6 +1,8 @@
 <?php
 namespace lib;
 
+use think\facade\Cache;
+
 class Auth
 {
     private $guard;
@@ -71,6 +73,7 @@ class Auth
         session($this->guard,null);
         cookie('name',null);
         cookie('password',null);
+        Cache::clear();
     }
 
 

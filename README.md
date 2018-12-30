@@ -49,15 +49,19 @@ www  WEB部署目录（或者子目录）
 
 ## 运行说明
 
-接着上面安装完后 ,命令 `php think migrate:run` 迁移数据文件
+接着上面安装完后 ,并且配置好你到数据库文件。
+
+然后运行命令 `php think migrate:run` 迁移数据文件
 
 然后 `php think seed:run` 填充数据
 
 配置后虚拟主机后 访问 : 该项目虚拟主机名/admin
 
-初始化账号：jack
+初始化账号：jack/hurray
 
 初始化密码: 123456
+
+网上demo：http://rbac.pumeiduo.com/admin
 
 ## 参与开发
 775893055@qq.com
