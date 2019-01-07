@@ -50,6 +50,7 @@ class Auth
      */
     public function login($name,$password,$remember)
     {
+        Cache::clear();
         $result = model(config('Auth.'.$this->guard.'.model'))
             ->where(['name'=>$name,'password'=>md5($password)])
             ->find();
