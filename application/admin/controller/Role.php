@@ -124,8 +124,6 @@ class Role extends BaseController
 
         $this->service->perm_store($id,$perm);
 
-        cache('rbac_permissions_for_role_id',null);
-
         return redirect('role/index')->with(
             ['success'=>true,'msg'=>'修改成功！']
         );
