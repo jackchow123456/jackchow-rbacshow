@@ -123,7 +123,7 @@ class Admin extends BaseController
 
         $id = $data['id'];
 
-        $role = $data['role'];
+        $role = $data['role'] ?:[];
 
         $this->service->role_store($id,$role);
 

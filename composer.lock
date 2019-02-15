@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8b6cf37c26302e9310d721e914d814e",
+    "content-hash": "263ae987eb2b5cd756151d58d822fa1d",
     "packages": [
         {
             "name": "jackchow/rbac",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jackchow123456/jackchow-rbac.git",
-                "reference": "17468d1709868669ae4931940a91e78209a0f466"
+                "reference": "1f30bcdb394488ecfb859f0608fae87e09c0b8bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jackchow123456/jackchow-rbac/zipball/17468d1709868669ae4931940a91e78209a0f466",
-                "reference": "17468d1709868669ae4931940a91e78209a0f466",
+                "url": "https://api.github.com/repos/jackchow123456/jackchow-rbac/zipball/1f30bcdb394488ecfb859f0608fae87e09c0b8bc",
+                "reference": "1f30bcdb394488ecfb859f0608fae87e09c0b8bc",
                 "shasum": ""
             },
             "require": {
@@ -40,7 +40,7 @@
                 }
             ],
             "description": "A Thinkphp5 RBAC Feature",
-            "time": "2018-12-30T09:40:27+00:00"
+            "time": "2019-01-10T11:17:27+00:00"
         },
         {
             "name": "league/fractal",
@@ -112,12 +112,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/framework.git",
-                "reference": "31b34590064c6851dc4b9a61323a4bb33e4882b0"
+                "reference": "98af9cd4f6da08168fd83045f52111f15ef85b20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/framework/zipball/31b34590064c6851dc4b9a61323a4bb33e4882b0",
-                "reference": "31b34590064c6851dc4b9a61323a4bb33e4882b0",
+                "url": "https://api.github.com/repos/top-think/framework/zipball/98af9cd4f6da08168fd83045f52111f15ef85b20",
+                "reference": "98af9cd4f6da08168fd83045f52111f15ef85b20",
                 "shasum": ""
             },
             "require": {
@@ -155,7 +155,7 @@
                 "orm",
                 "thinkphp"
             ],
-            "time": "2019-01-04T09:18:54+00:00"
+            "time": "2019-02-14T03:47:30+00:00"
         },
         {
             "name": "topthink/think-installer",

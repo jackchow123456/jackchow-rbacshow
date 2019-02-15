@@ -120,7 +120,7 @@ class Role extends BaseController
 
         $id = $data['id'];
 
-        $perm = $data['perm'];
+        $perm = $data['perm'] ?:[];
 
         $this->service->perm_store($id,$perm);
 

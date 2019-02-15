@@ -56,8 +56,7 @@ class Auth
             ->find();
         if($result){
             session($this->guard,$result);
-            $result->last_login_time = get_time();
-            $result->save();
+            model(config('Auth.'.$this->guard.'.model'))->where('id',$result->id)->update(['last_login_time'=>get_time()]);
             if($remember){
                 cookie('name',$name,3600);
                 cookie('password',$password,3600);
