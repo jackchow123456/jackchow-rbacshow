@@ -18,7 +18,7 @@ Rbac 演示后台
 
 > Composer 安装
 
-使用命令 `composer create-project jackchow/rbacshow:dev-master`
+使用命令 `composer create-project jackchow/rbacshow`
 
 
 ## 目录结构
