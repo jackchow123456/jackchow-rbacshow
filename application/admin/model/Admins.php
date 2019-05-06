@@ -9,7 +9,7 @@ class Admins extends Model
 {
     use RbacUser;
 
-    protected $hidden=['password','created_at','updated_at'];
+    protected $hidden = ['password','created_at','updated_at'];
 
     protected $auto = [];
     protected $insert = ['created_at','updated_at'];
@@ -18,7 +18,7 @@ class Admins extends Model
     protected $type = [
         'id'               =>  'integer',
         'password'         =>  'string',
-        'last_login_time'  =>  'datetime',
+//        'last_login_time'  =>  'datetime',
         'created_at'       =>  'datetime',
         'updated_at'       =>  'datetime',
     ];
